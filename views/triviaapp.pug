@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  div.container-sm
+    div.row.mb-5 
+      div.col.flex.justify-center-center.align-items-center
+        h1= title
+      div.col
+        div.fw-light QuizId: #{uniqueid}
+    div.row 
+      div.col.flex.justify-center-center.align-items-center
+        div.row.mb-3
+            div.col
+                div.fs-3 Question: #{currentQuestion}/#{maxQuestions}
+        if !questionData.answered
+            div.row.mb-5
+                div.col
+                    div.fw-bold Category: 
+                    div #{questionData.category}
+                div.col
+                    div.fw-bold Difficulty: 
+                    div #{questionData.difficulty}
+            h2.mb-3 !{questionData.question}
+            form.fs-4.form(action='/triviaverify/'+uniqueid+'/'+currentQuestion+'/' method="GET")
+                each val in answerArray 
+                    div.mb-2
+                        input.me-3(type="radio" id=val name="question" value=val)
+                        label(for=val) !{val}
+                button.mt-3.btn.btn-primary#triviaQuestionSubmit Submit Answer
+                div.mt-5.card.border-danger#triviaSubmitErrorMessage.d-none
+                    div.card-header Error 
+                    div.card-body.text-danger
+                        div.card-title
+                        div.card-text
+        else 
+            div.row.mb-5
+                h2.text-warning.fw-bold You already answered this question. 
+                div 
+                    p You answered !{questionData.answer}
+            div.mt-3
+                if parseInt(currentQuestion) < parseInt(maxQuestions) 
+                    - var nextQuestion = parseInt(currentQuestion)+1
+                    form(action='/triviaapp/'+uniqueid+'/'+nextQuestion method="GET") 
+                        button.btn.btn-primary Next Question
+                else if parseInt(currentQuestion) == parseInt(maxQuestions) 
+                  form(action='/triviaresults/'+uniqueid method="POST") 
+                       button.btn.btn-primary See Results  

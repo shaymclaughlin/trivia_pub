@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+  body
+    include navigation.pug
+    block content
+
+    div.row.mt-5
+      div.col.d-flex.flex-column.justify-content-center.align-items-center
+        p.mt-5 This trivia app is powered by the 
+          a(href="https://opentdb.com/" target="_blank" alt="Open Trivia Database") Open Trivia Database 
+          |.
+    script(src="/javascripts/bootstrap.min.js")
+    script(src="/javascripts/main.js")

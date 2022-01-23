@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  div.container-fluid
+    div.row.mb-5.text-center
+        div.col.flex.justify-center-center.align-items-center
+            h1= title
+    div.row.text-center
+        div.col.flex.justify-center-center.align-items-center
+    
+        if !previouslyAnswered
+            if !answeredCorrectly 
+                div.fs-3.text-danger 
+                    div !{answerResults}
+                    div The correct answer was: !{correctAnswer}
+            else 
+                div You answered !{answer}
+                div.fs-3.text-success !{answerResults}
+                div.mt-3
+                    //img(src=animalData.image_link alt=animalData.name)
+        else
+            h2.text-warning.fw-bold You already answered this question. 
+            div 
+                p You answered !{answer}
+        div.mt-3
+            if parseInt(currentQuestion) < parseInt(maxQuestions) 
+                - var nextQuestion = parseInt(currentQuestion)+1
+                form(action='/triviaapp/'+uniqueid+'/'+nextQuestion method="GET") 
+                    button.btn.btn-primary Next Question 
+            else if parseInt(currentQuestion) == parseInt(maxQuestions) 
+                form(action='/triviaresults/'+uniqueid method="POST") 
+                    button.btn.btn-primary See Results  
+

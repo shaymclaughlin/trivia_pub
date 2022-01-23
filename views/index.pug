@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  div.container
+    div.row.mb-5 
+      div.col
+      div.col.flex.justify-center-center.align-items-center
+        h1= title
+      div.col
+    div.row 
+      div.col.flex.justify-center-center.align-items-center
+      div.col.flex.justify-center-center.align-items-center
+        form.form(action="/results" method="POST")
+          label.mb-2 Enter a URL or Text below!
+          input.mb-2.w-100.form-control(type="text" name="qrcodeinput")
+          button.btn.btn-primary Get QR Code
+      div.col

@@ -1,0 +1,79 @@
+extends layout
+
+block content
+  div.container-fluid
+    div#backToTop.row.mb-5.text-center
+        div.col.flex.justify-center-center.align-items-center
+            h1= title
+    div.row.text-center
+        div.col.flex.justify-center-center.align-items-center
+            if !completed
+                h2.text-warning You still need to complete all of the trivia questions!
+                form(action='/triviaapp/'+uniqueid+'/'+currentQuestion method="GET") 
+                    button.btn.btn-primary Go to Question #{currentQuestion}
+            else 
+                
+                div.d-flex.flex-column.justify-center-center.align-items-center
+                    table.table(style="max-width: 500px")
+                        tr 
+                            td UniqueID
+                            td !{uniqueid}
+                        tr 
+                            td(colspan="2").fw-bold Settings
+                        tr
+                            td Category
+                            td !{questionCategoryName}
+                        tr
+                            td Difficulty
+                            td !{questionDifficulty}
+                        tr
+                            td Number of Questions
+                            td !{questionAmount}
+                div.mb-5.d-flex.flex-column.justify-center-center.align-items-center.fs-3
+                    div.col.d-flex.flex-row(style="max-width: 500px")
+                        div.col 
+                            a(href="/trivia").btn.btn-primary New Trivia Questions With Different Settings
+                        div.col
+                        div.col
+                            form.form(action="/triviastart" method="POST")
+                                input(type="hidden" value=questionCategory name="cat")
+                                input(type="hidden" value=questionAmount name="qamt")
+                                input(type="hidden" value=questionCategoryName name="catname")
+                                input(type="hidden" value=questionDifficulty name="difficulty")
+                                button.btn.btn-primary New Trivia Questions With Same Settings
+                div.mb-3.d-flex.flex-column.justify-center-center.align-items-center.fs-3
+                    div #{correctTotal}/#{total} Correct
+                    div #{percent}
+                div.mb-1.d-flex.flex-column.justify-center-center.align-items-center
+                    h4 Questions
+                div.d-flex.flex-column.justify-center-center.align-items-center
+                        each val in questionData
+                            div.card.mb-3(style="max-width: 500px")
+                                if (val.answeredCorrectly)
+                                    div.card-body.bg-success.text-white
+                                        h5.card-title !{val.question}
+                                        ul.list-group.list-group-flush 
+                                            li.list-group-item
+                                                div Your answer 
+                                                div !{val.answer}
+                                            li.list-group-item
+                                                div Correct answer 
+                                                div !{val.correct_answer}
+                                else 
+                                    div.card-body.bg-danger.text-white
+                                        h5.card-title !{val.question}
+                                        ul.list-group.list-group-flush 
+                                            li.list-group-item
+                                                div Your answer 
+                                                div !{val.answer}
+                                            li.list-group-item
+                                                div Correct answer 
+                                                div !{val.correct_answer}
+        div.mt-5 QuizId: #{uniqueid}
+        div.mt-5 
+            a.btn.btn-primary(href="#backToTop") Back To Top        
+        
+                                
+
+                        
+

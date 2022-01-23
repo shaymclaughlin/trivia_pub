@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  div.container-sm
+    div.row.mb-5.d-flex.justify-center-center.align-items-center 
+      h1.text-center= title
+    div.row.d-flex.justify-center-center.align-items-center
+      h3.text-center.mb-4 Start A New Quiz
+      form.form(action="/triviastart" method="POST").d-flex.flex-column#mainTriviaSettingsForm
+          label.mb-2 Choose Category
+          select#questionCategorySelect.p-2.w-100.mb-3(name="cat")
+              each val in categories 
+                  option(value=val.id)= val.name
+          label.mb-2 Choose Difficulty
+          select#questionDifficultySelect.p-2.w-100.mb-3(name="difficulty")
+              each val in difficulty_options 
+                  option(value=val.value)= val.name
+          label.mb-2 Choose Amount of Questions 
+          select#questionAmountSelect.p-2.w-100.mb-3(name="qamt")
+              each val in question_amt 
+                  option(value=val)= val
+          input(type="hidden" name="catname" id="catName" value="")
+          button.btn.btn-primary(style="max-width: 500px")#startTriviaButton Start Trivia
+      form.form(action="/triviastart" method="POST").d-flex.flex-column.mt-3#randomSettingsForm
+          input(type="hidden" name="cat" id="catRandomInput" value=categoryIdString)
+          input(type="hidden" name="difficulty" id="difficultyRandomInput" value=difficultyValString)
+          input(type="hidden" name="qamt" id="qamtRandomInput" value=questionAmountString)
+          input(type="hidden" name="catname" id="catNameRandomInput" value=categoryNameString)
+          button.btn.btn-info#randomSettingsButton(style="max-width: 500px") Random Settings 
+          button.btn.btn-primary.d-none#randomSettingsPost(style="max-width: 500px") Settings Randomized!, Start Trivia
+    div.row.mt-5.d-flex.justify-center-center.align-items-center
+      p When you start the trivia, a trivia QuizId will appear in the top right, near the page title. You can save that QuizId and enter it below to resume your quiz at a later time.
+      p Please note, quizzes will be removed after 1 week.*
+      p.fw-light *Not currently implemented.
+    div.row.mt-5.d-flex.justify-center-center.align-items-center
+      h3.mb-4 I have a QuizId
+      form.form(action="/triviaquizid" method="POST").d-flex.flex-column
+          label.mb-1 Enter Id  
+          input.p-2.mb-4(type="text" name="quizid")
+          button.btn.btn-primary Use QuizId

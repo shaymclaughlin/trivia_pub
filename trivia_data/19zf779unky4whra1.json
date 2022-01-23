@@ -1,0 +1,86 @@
+{
+  "date": "2022-01-07T16:18:42-05:00",
+  "currentQuestion": 1,
+  "maxQuestions": 5,
+  "correct": 0,
+  "incorrect": 0,
+  "difficulty": "any",
+  "category": "25",
+  "categoryName": "Art",
+  "uniqueId": "19zf779unky4whra1",
+  "questionArray": [
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who painted the Sistine Chapel?",
+      "correct_answer": "Michelangelo",
+      "incorrect_answers": [
+        "Leonardo da Vinci",
+        "Pablo Picasso",
+        "Raphael"
+      ],
+      "answered": false,
+      "answer": "",
+      "answeredCorrectly": false
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What French sculptor designed the Statue of Liberty? ",
+      "correct_answer": "Fr&eacute;d&eacute;ric Auguste Bartholdi",
+      "incorrect_answers": [
+        "Jean-L&eacute;on G&eacute;r&ocirc;me",
+        "Auguste Rodin",
+        "Henri Matisse"
+      ],
+      "answered": false,
+      "answer": "",
+      "answeredCorrectly": false
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who painted &quot;Swans Reflecting Elephants&quot;, &quot;Sleep&quot;, and &quot;The Persistence of Memory&quot;?",
+      "correct_answer": "Salvador Dali",
+      "incorrect_answers": [
+        "Jackson Pollock",
+        "Vincent van Gogh",
+        "Edgar Degas"
+      ],
+      "answered": false,
+      "answer": "",
+      "answeredCorrectly": false
+    },
+    {
+      "category": "Art",
+      "type": "boolean",
+      "difficulty": "medium",
+      "question": "Pablo Picasso is one of the founding fathers of &quot;Cubism.&quot;",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ],
+      "answered": false,
+      "answer": "",
+      "answeredCorrectly": false
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "How many paint and pastel versions of &quot;The Scream&quot; is Norwegian painter Edvard Munch believed to have produced?",
+      "correct_answer": "4",
+      "incorrect_answers": [
+        "1",
+        "3",
+        "2"
+      ],
+      "answered": false,
+      "answer": "",
+      "answeredCorrectly": false
+    }
+  ]
+}

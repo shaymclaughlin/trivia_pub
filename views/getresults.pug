@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div.container
+    div.row.mb-5 
+      div.col
+      div.col.flex.justify-center-center.align-items-center
+        h1= title
+      div.col
+    div.row 
+      div.col
+      div.col.flex.justify-center-center.align-items-center
+        -var imgdata = qrdata
+        if imgdata 
+            div
+                h2.text-center Here you go, enjoy!
+                img(src=imgdata)
+        else 
+            div
+                p Error occurred, please ensure you typed something in.
+                a.btn.btn-warning(href="/") Go Back
+      div.col

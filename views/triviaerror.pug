@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div.container
+    if flavormessage.length > 1
+      div.row.mb-5.d-flex.flex-column.justify-center-center.align-items-center.text-center
+        p.fs-3 #{flavormessage}
+    div.row.mb-5.d-flex.flex-column.justify-center-center.align-items-center
+      h1.text-center= title
+      if message.length > 1
+        p.fs-4.text-center #{message}
+    div.row.mb-5.d-flex.flex-column.justify-center-center.align-items-center
+      a(href="/trivia" style="max-width: 200px").btn.btn-primary Return Home

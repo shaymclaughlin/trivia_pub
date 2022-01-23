@@ -1,0 +1,14 @@
+node_modules/*
+bootstrap/*
+trivia_data/*
+views/*
+public/*
+data/*
+*.gitignore
+*.json
+*.pug
+*.jpg
+*.png
+*.html
+*.log
+*.gif

@@ -1,0 +1,31 @@
+{
+  "name": "qrcodeproj",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "bss": "sass bootstrap/scss/bootstrap.scss public/stylesheets/bootstrap.css",
+    "cpjs": "cp -r bootstrap/dist/js/bootstrap.min.js public/javascripts/bootstrap.min.js"
+  },
+  "dependencies": {
+    "awesome-qr": "^2.1.5-rc.0",
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.1",
+    "bootstrap": "^5.1.3",
+    "cookie-parser": "~1.4.4",
+    "dayjs": "^1.10.7",
+    "debug": "~2.6.9",
+    "dot-env": "^0.0.1",
+    "dotenv": "^10.0.0",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "mongodb": "^4.2.2",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "pug": "2.0.0-beta11",
+    "qr-code-styling": "^1.6.0-rc.1",
+    "qrcode": "^1.5.0",
+    "uniqid": "^5.4.0",
+    "uuid": "^8.3.2"
+  }
+}

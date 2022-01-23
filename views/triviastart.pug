@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  div.container-fluid
+    div.row.mb-5.text-center
+      div.col.d-flex.flex-column.justify-center-center.align-items-center
+        h1= title
+    div.row.mb-5.text-center
+      div.col.d-flex.flex-column.justify-center-center.align-items-center
+        table.table(style="max-width: 500px")
+          tr 
+            td UniqueID
+            td !{uniqueid}
+          tr
+            td(colspan="2") 
+              p.fw-light Save this ID if you would like to resume the trivia questions at any point.  
+          tr 
+              td(colspan="2").fw-bold Settings
+          tr
+            td Category
+            td !{categoryName}
+          tr
+            td Difficulty
+            td !{difficulty}
+          tr
+            td Number of Questions
+            td !{maxQuestions}
+    div.row.mb-5.text-center.d-flex.flex-column.justify-center-center.align-items-center
+      form.form(action="/triviaapp/"+uniqueid+"/"+currentQuestion method="GET")
+          button.btn.btn-primary Continue to Questions
+    div.row.mb-5.text-center.d-flex.flex-column.justify-center-center.align-items-center
+      form.form
+        a.btn.btn-primary(href="/trivia" alt="Go Back Home") Go Back Home
+    div.row.mt-5.mb-5.text-center.d-flex.flex-column.justify-center-center.align-items-center
+      div.col.mt-5.d-flex.flex-column.justify-center-center.align-items-center
+        h3 Parent?
+        p This Trivia App pulls data from 
+          a(href="opentdb.com/" target="_blank" title="Open Trivia DB") Open Trivia DB
+          | where users can upload their own questions. Unfortunately, there is no way to filter to ensure age-apprioriate questions. If you would like to preview the questions before continuing, you can use the button below.
+        btn.btn.btn-info#previewQuestions Preview questions
+        div#triviaQuestionPreview.card-body.text-white.d-none(style="max-width: 500px")
+          h5.card-title Questions
+          ul.list-group.list-group-flush 
+            each val in questionData 
+              li.list-group-item !{val.question}
+          
+    
